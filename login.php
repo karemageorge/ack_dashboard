@@ -1,4 +1,4 @@
-<?php include('loginproc.php');?>
+<?php require_once'php/loginproc.php';?>
 <html>
   <head>
     <meta charset="utf-8">
@@ -44,14 +44,14 @@
             <form id="login-form" method="post">
               <div class="form-group">
                 <label for="login-username" class="label-custom">User Name</label>
-                <input id="login-username" type="text" name="loginUsername" required="">
+                <input id="login-username" type="text" name="username" required="">
               </div>
               <div class="form-group">
                 <label for="login-password" class="label-custom">Password</label>
-                <input id="login-password" type="password" name="loginPassword" required="">
-              </div><a id="login" href="index.html" class="btn btn-primary">Login</a>
+                <input id="login-password" type="password" name="password" required="">
+                </div><button id="login" name ="login"  class="btn btn-primary">Login</button>
               <!-- This should be submit button but I replaced it with <a> for demo purposes-->
-            </form><a href="#" class="forgot-pass">Forgot Password?</a><small>Do not have an account? </small><a href="register.html" class="signup">Signup</a>
+<!--            </form><a href="#" class="forgot-pass">Forgot Password?</a><small>Do not have an account? </small><a href="register.html" class="signup">Signup</a>-->
           </div>
           
         </div>
