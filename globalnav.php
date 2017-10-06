@@ -5,12 +5,12 @@
           <div class="sidenav-header-inner text-center"><img src="img/avatar-1.jpg" alt="person" class="img-fluid rounded-circle">
             <h2 class="h5 text-uppercase"><?php echo $_SESSION['username'];?></h2><span class="text-uppercase"><?php echo $_SESSION['statel']; ?> </span>
           </div>
-          <div class="sidenav-header-logo"><a href="index.php" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
+          <div class="sidenav-header-logo"><a href="index.php" class="brand-small text-center"> <strong>A</strong><strong class="text-primary">CK</strong></a></div>
         </div>
         <div class="main-menu">
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li class="<?php if ($page =='home'){echo 'active';}?>"><a href="index.php"> <i class="icon-home"></i><span>Home</span></a></li>
-            <li class="<?php if ($page =='income'){echo 'active';}?>"> <a href="income.php"><i class="icon-bag"></i><span>Income Basket</span></a></li>
+            <li class="<?php if ($page =='inco me'){echo 'active';}?>"> <a href="income.php"><i class="icon-bag"></i><span>Income Basket</span></a></li>
             <li class="<?php if ($page =='expense'){echo 'active';}?>"> <a href="voteheads.php"><i class="icon-list-alt"></i><span>Vote Heads</span></a></li>
             <li class="<?php if ($page =='wages'){echo 'active';}?>"> <a href="wages.php"> <i class="icon-vallet"> </i><span>Consolidated Wages </span></a></li>
              <li class="<?php if ($page =='quota'){echo 'active';}?>"> <a href="tables.php"> <i class="icon-pie-chart"> </i><span>Quota </span></a></li>
@@ -24,7 +24,7 @@
             <li> <a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-user"></i><span>User Management</span>
                 <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
               <ul id="pages-nav-list" class="collapse list-unstyled">
-                <li> <a href="#"><i class="icon-user-secret"></i>System User</a></li>
+                <li class="<?php if ($page =='user'){echo 'active';}?>"> <a href="accountset.php"><i class="icon-user-secret"></i>System User</a></li>
                 <li> <a href="#"> <i class="icon-users"></i>Church Members</a></li> 
                 
               </ul>
@@ -91,14 +91,14 @@
                         </div></a></li>
                     <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Read all messages    </strong></a></li>
                   </ul> -->
-                </li>
+                </li><!-- <li><p class="" id="time"></p></li> -->
                 <li class="nav-item"><a href="login.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
             </div>
           </div>
         </nav>
       </header>
-      <script>
+   <!--    <script>
 var display=setInterval(function(){Time()},0);
 
 function Time()
@@ -107,4 +107,4 @@ var date=new Date();
 var time=date.toLocaleTimeString();
 document.getElementById("time").innerHTML=time;
 }
-</script>
+</script> -->
