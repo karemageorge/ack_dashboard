@@ -22,13 +22,13 @@ $db =mysqli_connect("localhost","username","password","ack");
             $query=mysqli_query($db,$sql);
             $rows = mysqli_num_rows($query);
                 if($rows ==1){
-					$_SESSION['username']=$username;
+					$_SESSION['username']=$username;		
 					$_SESSION['success']="successifully logged in";
                     while($lvl=mysqli_fetch_array($query)){
-						
+						$_SESSION['statel']=$lvl['level'];
                         if($lvl['level']=='secretary'){
 							
-                            header("location:index.php");}
+                            header("location:index.php");}//redirect  to pages that only be accessed  *in a secretary subfolder*
                 }
 
                 }else{

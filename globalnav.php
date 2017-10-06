@@ -1,39 +1,40 @@
+ <?php include ('php/loginproc.php');?>
  <nav class="side-navbar">
       <div class="side-navbar-wrapper">
         <div class="sidenav-header d-flex align-items-center justify-content-center">
           <div class="sidenav-header-inner text-center"><img src="img/avatar-1.jpg" alt="person" class="img-fluid rounded-circle">
-            <h2 class="h5 text-uppercase">Anderson Hardy</h2><span class="text-uppercase">Web Developer</span>
+            <h2 class="h5 text-uppercase"><?php echo $_SESSION['username'];?></h2><span class="text-uppercase"><?php echo $_SESSION['statel']; ?> </span>
           </div>
           <div class="sidenav-header-logo"><a href="index.php" class="brand-small text-center"> <strong>B</strong><strong class="text-primary">D</strong></a></div>
         </div>
         <div class="main-menu">
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
-            <li class="active"><a href="index.php"> <i class="icon-home"></i><span>Home</span></a></li>
-            <li> <a href="forms.php"><i class="icon-form"></i><span>Forms</span></a></li>
-            <li> <a href="charts.php"><i class="icon-presentation"></i><span>Charts</span></a></li>
-            <li> <a href="tables.php"> <i class="icon-grid"> </i><span>Tables                        </span></a></li>
-            <li> <a href="login.php"> <i class="icon-interface-windows"></i><span>Login page                        </span></a></li>
-            <li> <a href="#"> <i class="icon-mail"></i><span>Demo</span>
-                <div class="badge badge-warning">6 New</div></a></li>
-          </ul>
+            <li class="<?php if ($page =='home'){echo 'active';}?>"><a href="index.php"> <i class="icon-home"></i><span>Home</span></a></li>
+            <li class="<?php if ($page =='income'){echo 'active';}?>"> <a href="income.php"><i class="icon-bag"></i><span>Income Basket</span></a></li>
+            <li class="<?php if ($page =='expense'){echo 'active';}?>"> <a href="voteheads.php"><i class="icon-list-alt"></i><span>Vote Heads</span></a></li>
+            <li class="<?php if ($page =='wages'){echo 'active';}?>"> <a href="wages.php"> <i class="icon-vallet"> </i><span>Consolidated Wages </span></a></li>
+             <li class="<?php if ($page =='quota'){echo 'active';}?>"> <a href="tables.php"> <i class="icon-pie-chart"> </i><span>Quota </span></a></li>
+            <li class="<?php if ($page =='reports'){echo 'active';}?>"> <a href="Index.php"> <i class="icon-graph"></i><span>Reports</span>
+             <div class="badge badge-warning">6 New</div></a></li>
+          </ul> 
         </div>
         <div class="admin-menu">
           <ul id="side-admin-menu" class="side-menu list-unstyled"> 
-            <li> <a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-interface-windows"></i><span>Dropdown</span>
+             
+            <li> <a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-user"></i><span>User Management</span>
                 <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
               <ul id="pages-nav-list" class="collapse list-unstyled">
-                <li> <a href="#">Page 1</a></li>
-                <li> <a href="#">Page 2</a></li>
-                <li> <a href="#">Page 3</a></li>
-                <li> <a href="#">Page 4</a></li>
+                <li> <a href="#"><i class="icon-user-secret"></i>System User</a></li>
+                <li> <a href="#"> <i class="icon-users"></i>Church Members</a></li> 
+                
               </ul>
             </li>
-            <li> <a href="#"> <i class="icon-screen"> </i><span>Demo</span></a></li>
+           <!--  <li> <a href="#"> <i class="icon-screen"> </i><span>Demo</span></a></li>
             <li> <a href="#"> <i class="icon-flask"> </i><span>Demo</span>
                 <div class="badge badge-info">Special</div></a></li>
             <li> <a href=""> <i class="icon-flask"> </i><span>Demo</span></a></li>
             <li> <a href=""> <i class="icon-picture"> </i><span>Demo</span></a></li>
-          </ul>
+          </ul> -->
         </div>
       </div>
     </nav>
@@ -44,8 +45,8 @@
           <div class="container-fluid">
             <div class="navbar-holder d-flex align-items-center justify-content-between">
               <div class="navbar-header"><a id="toggle-btn" href="#" class="menu-btn"><i class="icon-bars"> </i></a><a href="index.php" class="navbar-brand">
-                  <div class="brand-text hidden-sm-down"><span>Bootstrap </span><strong class="text-primary">Dashboard</strong></div></a></div>
-              <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
+                  <div class="brand-text hidden-sm-down"><strong class="text-primary">ACK St' Stephen Ngoingwa Church</strong>&nbsp; <span>Accounts Dashboard </span></div></a></div>
+           <!--    <ul class="nav-menu list-unstyled d-flex flex-md-row align-items-md-center">
                 <li class="nav-item dropdown"> <a id="notifications" rel="nofollow" data-target="#" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" class="nav-link"><i class="fa fa-bell"></i><span class="badge badge-warning">12</span></a>
                   <ul aria-labelledby="notifications" class="dropdown-menu">
                     <li><a rel="nofollow" href="#" class="dropdown-item"> 
@@ -89,7 +90,7 @@
                           <h3 class="h5">Ashley Wood</h3><span>sent you a direct message</span><small>3 days ago at 7:58 pm - 10.06.2014</small>
                         </div></a></li>
                     <li><a rel="nofollow" href="#" class="dropdown-item all-notifications text-center"> <strong> <i class="fa fa-envelope"></i>Read all messages    </strong></a></li>
-                  </ul>
+                  </ul> -->
                 </li>
                 <li class="nav-item"><a href="login.php" class="nav-link logout">Logout<i class="fa fa-sign-out"></i></a></li>
               </ul>
@@ -97,3 +98,13 @@
           </div>
         </nav>
       </header>
+      <script>
+var display=setInterval(function(){Time()},0);
+
+function Time()
+{
+var date=new Date();
+var time=date.toLocaleTimeString();
+document.getElementById("time").innerHTML=time;
+}
+</script>
