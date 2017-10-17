@@ -1,4 +1,9 @@
-<?php include ('php/loginproc.php');?>
+<?php require_once('php/loginproc.php');
+	  include ('php/registeradmin.php');
+
+$errors=array();
+?>
+
 <!DOCTYPE html>
 <html>
   <head>
@@ -25,6 +30,7 @@
     <script src="https://use.fontawesome.com/99347ac47f.js"></script>
     <!-- Font Icons CSS-->
   <!-- <link rel="stylesheet" href="https://file.myfontastic.com/da58YPMQ7U5HY8Rb6UxkNf/icons.css">  old dashboard icon databse-->
+ 
     <link href="https://file.myfontastic.com/onqXfTEE9u2ddH6ZwSxUgM/icons.css" rel="stylesheet">
     <!-- Tweaks for older IEs--><!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
@@ -46,6 +52,70 @@
         <header>
           <h1 class="col-md-10 h1 display"><?php echo $_SESSION['username'];?> &nbsp;  </h1>
         </header>
+		<!-- ###################################################################################-->
+		<div class="col-lg-10">
+		<a href= "#"><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal"> Add Admin User</button></a>
+		</div>
+		
+		<?phpif (isset($_SESSION['success'])){ echo $_SESSION['success'];}?>
+		<div class="container">
+
+  <!-- Trigger the modal with a button -->
+  <!-- Modal -->
+  <div class="modal fade" id="myModal" role="dialog">
+    <div class="modal-dialog">
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Register Admin</h4>
+        </div>
+        <div class="modal-body">
+          <p>Register New privillaged User.</p>
+		  
+		  
+		  <div class="col-md-12">
+				<form method="post">
+				<div class="form-group">
+				<?php include ("php/errors.php");?>
+				<p>Username: <input type="text" class="form-control"name="username"  placeholder="username"></p>
+				<p>Email: <input type="email"class="form-control"name="email" id="ministry" placeholder="email"></p>
+				<p>password: <input type="password" class="form-control" name="password"  placeholder="password"></p>
+				<p>LEVEL: <select name="level">
+							<option value="secretary">Secretary</option>
+							<option value="vicar">Vicar</option>
+							<option value="subordinate">Subordinate</option>
+			
+						  </select>
+			</p>
+				<p><a href="#" style="text-decoration:none;color:#555;"> <i class="fa fa-undo" aria-hidden="true"></i> Back  </a>
+				<a href="index.php"><button class="btn btn-success" value="save" name="btnreg" id="btnSave">  Submit </button> </a></p>
+	
+			</form>
+			
+			</div>
+		  
+		  
+		  <!--#end modal form -->
+		  
+		  
+		  
+		  
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+		<!-- **********************************************************************-->
+		
+		
+		
+		
         <!-- ************************************************************************************* -->
         <section>
           
@@ -87,17 +157,20 @@
                     </div><hr>
                   </form>
                   <h4 class="col-md-10">Email configuration</h4>
-                  <form class="col-md-10  ">
+
+                  <!-- *********************************************************************jquery test -->
+                  <form class="col-md-10  "> 
+
                     <div class="form-group row">
                       <label class="col-sm-4 form-control-label">Current email</label>
                       <div class="col-sm-8">
-                        <input type="email" class="form-control" placeholder="martina@example.com">
+                        <input type="email"  name="email_1"  id="email_1" class="form-control" placeholder="martina@example.com">
                       </div>
                     </div>
                     <div class="form-group row">
                       <label class="col-sm-4 form-control-label">New email</label>
                       <div class="col-sm-8">
-                        <input type="email" class="form-control" placeholder="">
+                        <input type="email" name="email_2" id="email_2"  class="form-control" placeholder="">
                       </div>
                     </div>
                     <div class="form-group row">
@@ -105,7 +178,10 @@
                         <button type="submit"  id ="e_edit_submit" name ="e_edit_submit" class="btn btn-warning">Update email</button>
                       </div>
                     </div><hr>
+                    <span id="error_message" class="text-danger"></span>  
+                     <span id="success_message" class="text-success"></span> 
                   </form>
+                  <!-- *********************************************************************************** -->
                   <h4 class="col-md-10">Privacy settings</h4>
                   <form class="col-md-10  ">
                     <div class="form-group row">
@@ -125,6 +201,7 @@
                         <button type="submit" class="btn btn-warning">Update settings</button>
                       </div>
                     </div>
+
                   </form>
                 </div>
               </div>

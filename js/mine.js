@@ -2,7 +2,7 @@ $(document).ready(function(){
 		$('e_edit_submit').click(function(){
 				var email_1 = $('#email_1').val();
 				var email_2 =$('#email_2').val();
-				if(emil_1==''||email_2=='')
+				if(email_1==''||email_2=='')
 				{
 					
 					$('#error_message').html("All fields are required");
@@ -11,7 +11,7 @@ $(document).ready(function(){
 					
 					$('#error_message'),html('');
 					$.ajax({
-						url:"/php/loginproc.php",
+						url:"../php/loginproc.php",
 						method:"POST",
 						data:{name:name,message:message},
 						success:function(data){
@@ -25,6 +25,6 @@ $(document).ready(function(){
 						}
 					});
 				}
-		}
+		});
 			
-}
+});

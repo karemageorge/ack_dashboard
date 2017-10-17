@@ -1,4 +1,6 @@
 <?php include("php/loginproc.php");
+if(empty($_SESSION['username'])){
+    header("location:login.php");}
 ?>
 <html>
   <head>

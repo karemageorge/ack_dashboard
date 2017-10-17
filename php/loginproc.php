@@ -1,7 +1,12 @@
-
 <?php 
 $errors=array();
-session_start();
+
+
+ if(!isset($_SESSION)) 
+    { 
+        session_start(); 
+    } 
+#session_start();
 
 $db =mysqli_connect("localhost","username","password","ack");
     $error= '';//variable tos htore  error
@@ -15,36 +20,60 @@ $db =mysqli_connect("localhost","username","password","ack");
             $password=$_POST['password'];
 				
             //$conn =mysqli_connect('localhost','username', 'password');
-           // $db =mysqli_select_db($conn,'ack');
+            // $db =mysqli_select_db($conn,'ack');
             $password=md5($password);
+			
             $sql="SELECT * FROM admins WHERE username='$username' AND password='$password'";
 
-            $query=mysqli_query($db,$sql);
-            $rows = mysqli_num_rows($query);
-                if($rows ==1){
+            $query = mysqli_query($db,$sql);
+            $rows  = mysqli_num_rows($query);
+                if($rows ===1){
 					$_SESSION['username']=$username;		
 					$_SESSION['success']="successifully logged in";
                     while($lvl=mysqli_fetch_array($query)){
 						$_SESSION['statel']=$lvl['level'];
+						
+						
                         if($lvl['level']=='secretary'){
 							
-                            header("location:index.php");}//redirect  to pages that only be accessed  *in a secretary subfolder*
-                }
+                            header("location:income.php");
+							//redirect  to pages that only be accessed  *in a secretary subfolder**/
+							
+                } 
+				        elseif($lvl['level']=='subordinate'){
+							
+                            header("location:voteheads.php");
+							//redirect  to pages that only be accessed  *in a secretary subfolder**/
+							
+                } 
+						elseif($lvl['level']=='vicar'){
+							
+                            header("location:voteheads.php");
+							//redirect  to pages that only be accessed  *in a secretary subfolder**/
+							
+                } 
 
-                }else{
+
+
+                else{
                     $error ="username or email Invalid";
                 }
+				
+				
                 mysqli_close($db);
-        }
+				}
+			}
+		}
+		
     }
 
 
 //--==============================================================  register member
 if(isset($_POST['btnreg'])){
-        $username=mysql_real_escape_string($_POST['username']);     
-        $email=mysql_real_escape_string($_POST['email']);
-        $password=mysql_real_escape_string($_POST['password']);
-        $level=mysql_real_escape_string($_POST['level']);
+        $username=($_POST['username']);     
+        $email=($_POST['email']);
+        $password=($_POST['password']);
+        $level=($_POST['level']);
 
 
         if (empty($username)){
@@ -66,17 +95,23 @@ if(isset($_POST['btnreg'])){
             mysqli_query($db,$sql);
             //$_SESSION['username']=$username;
             //$_SESSION['success']="You are now registered";
-            header("location:index.php");
+            header("location:accountset.php");
         }
     }
 //========================================logout
-if(isset($_GET['logout'])){
-                    session_destroy();
-                    unset($_SESSION['username']);
-                    header ('location:logon.php');
-                }
+
+// ======================================= jquey test
+ if(isset($_POST["e_edit_submit"]))  
+ {  
+      $email_1 = mysqli_real_escape_string($db, $_POST["email_1"]);  
+      $email_2 = mysqli_real_escape_string($db, $_POST["email_2"]);  
+      $sql = "INSERT INTO tbl_test(email_1, email_2) VALUES ('".$email_1."', '".$email_2."')";  
+      if(mysqli_query($db, $sql))  
+      {  
+           echo "Emails  Changed";  
+      }  
+ } 
+
 
 ?>
-
-
 

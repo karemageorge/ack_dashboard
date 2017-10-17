@@ -1,10 +1,11 @@
 <?php
 ob_start();
 //include('konek.php');
-include('loginproc.php');
+//include('loginproc.php');
 $errors=array();
 
 ?>
+
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js" integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn" crossorigin="anonymous"></script>
@@ -27,9 +28,8 @@ $errors=array();
 <p>password: <input type="password" class="form-control" name="password"  placeholder="password"></p>
 <p>LEVEL: <select name="level">
 			<option value="secretary">Secretary</option>
-			<option value="secretary">Vicar</option>
+			<option value="Vicar">Vicar</option>
 			<option value="subordinate">Subordinate</option>
-			
 			</select>
 </p>
 <p><a href="#" style="text-decoration:none;color:#555;"> <i class="fa fa-undo" aria-hidden="true"></i> Back  </a>
