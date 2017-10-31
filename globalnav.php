@@ -10,7 +10,32 @@
         <div class="main-menu">
           <ul id="side-main-menu" class="side-menu list-unstyled">                  
             <li class="<?php if ($page =='home'){echo 'active';}?>"><a href="index.php"> <i class="icon-home"></i><span>Home</span></a></li>
-            <li class="<?php if ($page =='inco me'){echo 'active';}?>"> <a href="income.php"><i class="icon-bag"></i><span>Income Basket</span></a></li>
+          <!--   <li class="<?php //if ($page =='inco me'){echo 'active';}?>"> <a href="income.php"><i class="icon-bag"></i><span>Income Basket</span></a></li>
+ -->
+
+             <div class="admin-menu">
+          <ul id="side-admin-menu" class="side-menu list-unstyled"> 
+             
+            <li> <a href="#pages-nav-list" data-toggle="collapse" aria-expanded="false"><i class="icon-user"></i><span>Income Basket</span>
+                <div class="arrow pull-right"><i class="fa fa-angle-down"></i></div></a>
+              <ul id="pages-nav-list" class="collapse list-unstyled">
+                <li class="<?php if ($page =='tithe'){echo 'active';}?>"> <a href="formtithe.php"> <i class="icon-users"></i>Tithes</a></li> 
+
+                <li class="<?php if ($page =='thanksgiving'){echo 'active';}?>"> <a href="formthanksgiving.php"> <i class="icon-users"></i>Thankgiving</a></li> 
+
+                <li class="<?php if ($page =='offering'){echo 'active';}?>"> <a href="formoffering.php"> <i class="icon-users"></i>Offerings</a></li> 
+                
+              </ul>
+            </li>
+           <!--  <li> <a href="#"> <i class="icon-screen"> </i><span>Demo</span></a></li>
+            <li> <a href="#"> <i class="icon-flask"> </i><span>Demo</span>
+                <div class="badge badge-info">Special</div></a></li>
+            <li> <a href=""> <i class="icon-flask"> </i><span>Demo</span></a></li>
+            <li> <a href=""> <i class="icon-picture"> </i><span>Demo</span></a></li>
+          </ul> -->
+        </div>
+
+
             <li class="<?php if ($page =='expense'){echo 'active';}?>"> <a href="voteheads.php"><i class="icon-list-alt"></i><span>Vote Heads</span></a></li>
             <li class="<?php if ($page =='wages'){echo 'active';}?>"> <a href="wages.php"> <i class="icon-vallet"> </i><span>Consolidated Wages </span></a></li>
              <li class="<?php if ($page =='quota'){echo 'active';}?>"> <a href="tables.php"> <i class="icon-pie-chart"> </i><span>Quota </span></a></li>
